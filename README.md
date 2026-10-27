@@ -14,11 +14,11 @@
 | 3 | Singleton | Creacional — adicional | Implementado por Alejandro | Comparte un registro único de eventos entre módulos para conservar un historial común. |
 | 4 | Adapter | Estructural — obligatorio | Implementado por Alejandro | Conecta un GPS legado, que entrega coordenadas, con una aplicación de mapas que espera un proveedor de ubicación compatible. |
 | 5 | Decorator | Estructural — adicional | Implementado por Alejandro | Agrega leche y jarabe a un café y calcula el precio combinando opciones sin crear una clase para cada combinación. |
-| 6 | Flyweight | Estructural — obligatorio | Pendiente | Pendiente de completar por la compañera. |
-| 7 | Observer | Comportamiento — obligatorio | Pendiente | Pendiente de completar por la compañera. |
-| 8 | Strategy | Comportamiento — adicional | Pendiente | Pendiente de completar por la compañera. |
-| 9 | Command | Comportamiento — adicional | Pendiente | Pendiente de completar por la compañera. |
-| 10 | State | Comportamiento — adicional | Pendiente | Pendiente de completar por la compañera. |
+| 6 | Flyweight | Estructural — obligatorio | Pendiente | Pendiente de completar por Andres David Perea. |
+| 7 | Observer | Comportamiento — obligatorio | Pendiente | Pendiente de completar por Andres David Perea. |
+| 8 | Strategy | Comportamiento — adicional | Pendiente | Pendiente de completar por Andres David Perea. |
+| 9 | Command | Comportamiento — adicional | Pendiente | Pendiente de completar por Andres David Perea. |
+| 10 | State | Comportamiento — adicional | Pendiente | Pendiente de completar por Andres David Perea. |
 
 ## Ejecución
 
