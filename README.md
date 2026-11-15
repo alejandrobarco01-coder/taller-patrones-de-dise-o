@@ -55,3 +55,11 @@ node --experimental-strip-types 10_state.ts
 ## Alcance de la entrega
 
 Este repositorio contiene únicamente el trabajo de los integrantes. La carpeta base con los ejemplos entregados por el profesor no hace parte de esta entrega.
+
+## Aplicación web interactiva
+
+El catálogo estático de la raíz presenta demos manipulables de los diez patrones y enlaza cada una con su archivo TypeScript. No necesita instalación, backend ni base de datos.
+
+### Publicar en GitHub Pages
+
+El workflow `.github/workflows/deploy-pages.yml` despliega el sitio cuando se actualiza `main`. En GitHub, abre **Settings → Pages → Build and deployment** y selecciona **GitHub Actions** como fuente. La URL esperada es `https://alejandrobarco01-coder.github.io/taller-patrones-de-dise-o/`.
