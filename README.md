@@ -63,18 +63,3 @@ El catálogo estático de la raíz presenta demos manipulables de los diez patro
 ### Publicar en GitHub Pages
 
 El workflow `.github/workflows/deploy-pages.yml` despliega el sitio cuando se actualiza `main`. En GitHub, abre **Settings → Pages → Build and deployment** y selecciona **GitHub Actions** como fuente. La URL esperada es `https://alejandrobarco01-coder.github.io/taller-patrones-de-dise-o/`.
-
-## Calidad y CI/CD
-
-El workflow ejecuta `npm ci`, lint con TypeScript estricto, 11 pruebas automatizadas, build, validación de los archivos estáticos, publicación en GitHub Pages y verificación posterior con HTTP 200 y el título de la aplicación.
-
-Comandos locales:
-
-```sh
-npm ci
-npm run lint
-npm run test:ci
-npm run build
-```
-
-Los commits deben seguir Conventional Commits (`feat:`, `fix:`, `docs:`, `ci:`, `test:`, `refactor:`). Commitlint y Husky validan el mensaje `commit-msg` con las dependencias instaladas.
