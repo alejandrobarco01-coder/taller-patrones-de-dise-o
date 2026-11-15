@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101a19" />
+    <meta name="description" content="Explora y prueba diez patrones de diseño con demostraciones interactivas en TypeScript." />
+    <title>Patrones en acción — Taller de Arquitectura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#inicio"><span class="brand-mark">{ }</span><span>patrones<span class="brand-dim">.lab</span></span></a>
+      <nav aria-label="Navegación principal"><a href="#catalogo">Catálogo</a><a href="#como-funciona">El taller</a></nav>
+      <a class="repo-link" href="https://github.com/alejandrobarco01-coder/taller-patrones-de-dise-o" target="_blank" rel="noreferrer">Ver código <span>↗</span></a>
+    </header>
+
+    <main id="inicio">
+      <section class="hero wrap">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse"></span> ARQUITECTURA DE SOFTWARE <span class="eyebrow-sep">/</span> UCEVA</div>
+          <h1>Los patrones<br />se entienden <em>al usarlos.</em></h1>
+          <p class="hero-intro">Diez soluciones clásicas para problemas reales de diseño, explicadas con ejemplos cercanos y pequeñas demos que puedes manipular.</p>
+          <div class="hero-actions"><a class="button button-lime" href="#catalogo">Explorar patrones <span>↓</span></a><span class="hero-meta"><b>10</b> patrones <i></i> <b>3</b> familias</span></div>
+        </div>
+        <div class="hero-graphic" aria-label="Diagrama de patrones conectados">
+          <div class="graphic-grid"></div><div class="diagram-line line-a"></div><div class="diagram-line line-b"></div><div class="diagram-line line-c"></div>
+          <div class="diagram-node node-main"><span>◇</span><small>DESIGN<br />PATTERN</small></div>
+          <div class="diagram-node node-one"><span>▧</span><small>CREACIONAL</small></div><div class="diagram-node node-two"><span>⌘</span><small>ESTRUCTURAL</small></div><div class="diagram-node node-three"><span>↻</span><small>COMPORTAMIENTO</small></div>
+          <div class="graphic-caption">UN LENGUAJE COMÚN PARA EL DISEÑO</div><span class="graphic-index">FIG. 01</span>
+        </div>
+        <div class="hero-bottom"><span>01 — CATÁLOGO INTERACTIVO</span><a href="#catalogo">Desliza para explorar <span>↓</span></a></div>
+      </section>
+
+      <section class="catalog wrap" id="catalogo">
+        <div class="section-heading"><div><div class="eyebrow eyebrow-light">BIBLIOTECA DE PATRONES <span class="eyebrow-sep">/</span> 10 EJEMPLOS</div><h2>Una solución para<br /><em>cada tipo de problema.</em></h2></div><p>Filtra el catálogo y abre una demostración. Cada patrón incluye su intención, un caso de uso y una pequeña interacción.</p></div>
+        <div class="catalog-controls"><div class="filters" role="group" aria-label="Filtrar por familia"><button class="filter active" data-filter="todos">Todos <span>10</span></button><button class="filter" data-filter="creacional">Creacionales <span>3</span></button><button class="filter" data-filter="estructural">Estructurales <span>3</span></button><button class="filter" data-filter="comportamiento">Comportamiento <span>4</span></button></div><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Buscar patrón..." aria-label="Buscar patrón" /><kbd>/</kbd></label></div>
+        <div class="pattern-grid" id="pattern-grid" aria-live="polite"></div>
+        <div class="no-results" id="no-results" hidden>No encontramos patrones con ese nombre. Prueba otra búsqueda.</div>
+      </section>
+
+      <section class="explainer wrap" id="como-funciona"><div class="section-label"><span>01 / CÓMO USAR ESTE TALLER</span><i></i></div><div class="explainer-grid"><h2>Aprender haciendo,<br /><em>sin caja negra.</em></h2><div class="steps"><article><span>01</span><div><h3>Identifica el problema</h3><p>Lee qué situación resuelve el patrón y por qué es una buena opción para ese caso.</p></div></article><article><span>02</span><div><h3>Prueba la idea</h3><p>Usa la demo para cambiar datos y observar el resultado del diseño en acción.</p></div></article><article><span>03</span><div><h3>Revisa el TypeScript</h3><p>Abre el archivo del ejercicio y conecta la interacción con sus clases y responsabilidades.</p></div></article></div></div></section>
+      <section class="closing wrap"><div class="closing-panel"><div><div class="eyebrow">DEL CONCEPTO AL CÓDIGO</div><h2>Diseñar también<br />es <em>elegir bien.</em></h2><p>Los patrones no son recetas. Son herramientas para comunicar decisiones y mantener el software flexible.</p></div><a class="button button-outline" href="https://github.com/alejandrobarco01-coder/taller-patrones-de-dise-o" target="_blank" rel="noreferrer">Explorar el repositorio <span>↗</span></a><span class="closing-symbol">{;}</span></div></section>
+    </main>
+    <footer class="footer"><a class="brand" href="#inicio"><span class="brand-mark">{ }</span><span>patrones<span class="brand-dim">.lab</span></span></a><p>Taller académico · Arquitectura de Software · UCEVA</p><a href="#inicio">Volver arriba ↑</a></footer>
+
+    <dialog id="demo-dialog" aria-labelledby="dialog-title"><div class="dialog-shell"><div class="dialog-top"><span class="dialog-label" id="dialog-category">DEMO INTERACTIVA</span><button class="icon-button" id="dialog-close" aria-label="Cerrar demostración">×</button></div><div class="dialog-heading"><span class="dialog-number" id="dialog-number">01</span><div><h2 id="dialog-title">Patrón</h2><p id="dialog-subtitle"></p></div></div><div class="dialog-description" id="dialog-description"></div><div class="demo-content" id="demo-content"></div><div class="dialog-bottom"><a id="source-link" href="#" target="_blank" rel="noreferrer">Ver ejemplo TypeScript ↗</a><span>Demo local · no envía datos</span></div></div></dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
+
