@@ -1,41 +1,65 @@
-name: Deploy design patterns workshop to GitHub Pages
+name: Build, test, deploy and verify workshop
 
 on:
   push:
     branches: [main]
-    paths:
-      - 'index.html'
-      - 'styles.css'
-      - 'app.js'
-      - 'README.md'
-      - '.github/workflows/deploy-pages.yml'
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages-patterns
+  group: patterns-pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/checkout@v4.2.2
+      - name: Setup Node
+        uses: actions/setup-node@v4.4.0
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Unit tests
+        run: npm run test:ci
+      - name: Build static site
+        run: npm run build
+      - name: Validate required site files
+        run: test -f index.html && test -f styles.css && test -f app.js
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
           path: .
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4.0.5
 
+  verify-deployment:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify published application
+        run: curl --fail --retry 5 --retry-delay 10 --silent --show-error https://alejandrobarco01-coder.github.io/taller-patrones-de-dise-o/ | grep -q 'Patrones en acción'

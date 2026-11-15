@@ -1,0 +1,8 @@
+{
+  "name": "taller-patrones-de-diseno",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"build":"tsc --noEmit", "lint":"tsc --noEmit", "test":"node --test tests/*.mjs", "test:ci":"npm test", "format":"prettier --write .", "prepare":"husky"},
+  "devDependencies": {"@commitlint/cli":"^19.8.0","@commitlint/config-conventional":"^19.8.0","husky":"^9.1.7","prettier":"^3.5.0","typescript":"^5.8.0"}
+}
